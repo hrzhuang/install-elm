@@ -1,0 +1,14 @@
+name: Install Elm
+description: Install the Elm compiler
+runs:
+  using: composite
+  steps:
+    - name: Download Elm binary
+      run: curl -L https://github.com/elm/compiler/releases/download/0.19.1/binary-for-linux-64-bit.gz | gunzip > elm
+      shell: bash
+    - name: Set executable permission
+      run: chmod u+x elm
+      shell: bash
+    - name: Install Elm binary
+      run: sudo mv elm /usr/local/bin
+      shell: bash
